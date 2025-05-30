@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intervalos de Confianza</title>
+  <link rel="stylesheet" href="Style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header elegante -->
+  <header class="main-header">
+    <h1>Cálculo de Intervalos de Confianza</h1>
+    <nav>
+      <ul>
+        <li><a href="https://pca.edu.co/wp/" target="_blank">Universidad PCA</a></li>
+        <li><a href="https://es.wikipedia.org/wiki/Intervalo_de_confianza" target="_blank">¿Qué es un intervalo de confianza?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenedor flexible para carrusel y formulario -->
+  <div class="flex-container">
+    
+    <!-- Carrusel -->
+    <div class="carousel-container">
+      <div class="carousel-slide slide1 active">
+        <div class="slide-content">
+          <h2>¿Qué es un Intervalo de Confianza?</h2>
+          <p>Un intervalo de confianza es un rango de valores, calculado a partir de datos de una muestra, que probablemente contiene el valor verdadero de una característica de una población.</p>
+          <p><strong>Ejemplo:</strong> Si 30 baterías duran en promedio 1,200 horas, el intervalo puede indicar que la media real está entre 1,150 y 1,250 horas con 95% de confianza.</p>
+        </div>
+      </div>
+
+      <div class="carousel-slide slide2">
+        <div class="slide-content">
+          <h2>¿Por qué es útil?</h2>
+          <ul>
+            <li>Ayuda a establecer garantías más seguras.</li>
+            <li>Permite tomar decisiones basadas en datos.</li>
+            <li>Es útil en muchas áreas como medicina, ingeniería o encuestas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="carousel-slide slide3">
+        <div class="slide-content">
+          <h2>Conceptos Clave</h2>
+          <ul>
+            <li><strong>Media:</strong> Promedio de los datos.</li>
+            <li><strong>Desviación estándar:</strong> Qué tanto varían los datos.</li>
+            <li><strong>n:</strong> Tamaño de muestra.</li>
+            <li><strong>Confianza:</strong> Grado de certeza.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="carousel-slide slide4">
+        <div class="slide-content">
+          <h2>Ejemplo práctico</h2>
+          <p>Un amortiguador de moto tiene una media de duración de 20,000 km con σ = 2,000 y n = 50. Con 95% de confianza, el límite inferior da 19,450 km, buena base para una garantía segura.</p>
+        </div>
+      </div>
+
+      <!-- Botones de navegación -->
+      <button class="carousel-arrow left blink" onclick="cambiarSlide(-1)">&#10094;</button>
+      <button class="carousel-arrow right blink" onclick="cambiarSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Formulario -->
+    <div class="container">
+      <h2>Intervalos de Confianza</h2>
+      <form id="formulario">
+        <label>Promedio (x̄): <input type="number" step="any" id="media" required /></label>
+        <label>Desviación estándar (σ): <input type="number" step="any" id="desviacion" required /></label>
+        <label>Tamaño de muestra (n): <input type="number" id="muestra" required /></label>
+        <label>Confianza (%): 
+          <select id="confianza">
+            <option value="90">90%</option>
+            <option value="95" selected>95%</option>
+            <option value="99">99%</option>
+          </select>
+        </label>
+        <label>Tipo de garantía:
+          <select id="garantia">
+            <option value="tiempo">Tiempo</option>
+            <option value="recorrido">Recorrido</option>
+          </select>
+        </label>
+        <button type="submit">Calcular</button>
+      </form>
+    </div>
+
+  </div> <!-- Cierre de flex-container -->
+
+  <!-- Modal -->
+  <div id="resultadoModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <h2>Resultado del Intervalo de Confianza</h2>
+      <div id="resultadoTexto"></div>
+      <canvas id="grafica"></canvas>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>&copy; 2025 Intervalos de Confianza | Proyecto educativo</p>
+    <a href="#">Instagram</a> |
+    <a href="#">Facebook</a> |
+    <a href="#">GitHub</a>
+  </footer>
+
+  <script src="Work.js"></script>
+</body>
+</html>

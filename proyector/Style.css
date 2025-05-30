@@ -1,0 +1,292 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(270deg, #d4fc79, #96e6a1);
+  background-size: 400% 400%;
+  animation: fondoVerde 15s ease infinite;
+  color: #222;
+}
+
+@keyframes fondoVerde {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contenedor principal */
+.container {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+}
+
+/* Formularios */
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Carrusel */
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Fondo por slide */
+.slide1 {
+  background-image: url("img/foto1.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.slide2 {
+  background-image: url("img/foto2.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.slide3 {
+  background-image: url("img/foto3.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.slide4 {
+  background-image: url("img/foto4.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Capa oscura que cubre toda la slide */
+.carousel-slide {
+  position: relative;
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+  min-height: 300px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* capa oscura */
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+/* Contenido encima del fondo oscuro */
+.slide-content {
+  position: relative;
+  z-index: 2;
+  background: none;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  padding: 100px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;          /* tamaño de la flecha */
+  color: white;              /* color de la flecha */
+  background: red;           /* fondo del botón */
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 2px 5px;          /* padding reducido: sólo rodea la flecha */
+  border-radius: 50%;        /* forma circular pequeña */
+  user-select: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow:hover {
+  background: white;
+  color: red;
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+
+
+
+
+/* Parpadeo */
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.blink {
+  animation: parpadeo 1.5s infinite;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.main-header {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 20px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #2e7d32;
+}
+
+.main-header p {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0 0;
+}
+
+.main-footer {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+.main-header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.main-header nav ul li a {
+  text-decoration: none;
+  color: white;
+  background-color: #2e7d32; /* Mismo verde que el título */
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-header nav ul li a:hover {
+  background-color: #256428;
+  transform: scale(1.05);
+}
+
+/* Mejoras visuales para que carrusel y formulario estén más juntos y centrados */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;       /* Centrado vertical */
+  gap: 40px;                 /* Menor separación horizontal */
+  min-height: 85vh;          /* Altura mínima para centrar verticalmente */
+  padding: 20px;
+}
+
+/* Asegura que no se estiren innecesariamente */
+.carousel-container, .container {
+  flex: 1 1 400px;
+  max-width: 700px;
+  margin: 0;
+}
+
+/* Ajuste general del body para evitar tanto espacio arriba */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d4fd8a; /* o el color que estés usando */
+}
